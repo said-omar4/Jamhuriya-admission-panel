@@ -77,7 +77,7 @@ const Programs = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDeptModalOpen, setIsDeptModalOpen] = useState(false);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
-  
+
   // Selected Faculty for Detail Modal
   const [selectedFaculty, setSelectedFaculty] = useState(null);
 
@@ -126,7 +126,7 @@ const Programs = () => {
     };
 
     setPrograms([newFaculty, ...programs]);
-    
+
     // Reset Form & Close Modal
     setFacultyName('');
     setFee('');
@@ -273,7 +273,7 @@ const Programs = () => {
         <select className="bg-main-bg border border-white/5 text-white rounded-xl px-4 py-3.5 text-[13px] outline-none min-w-[160px] appearance-none pr-10 cursor-pointer" style={{ backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%238c8a9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>')`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center' }}>
           <option>All Faculties</option>
         </select>
-        <button 
+        <button
           onClick={() => setIsModalOpen(true)}
           className="bg-primary hover:bg-opacity-90 text-white rounded-xl px-6 py-3.5 text-[13px] font-medium transition-colors ml-auto whitespace-nowrap cursor-pointer"
         >
@@ -284,16 +284,16 @@ const Programs = () => {
       {/* Faculty Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[15px]">
         {programs.map((program, index) => (
-          <Card 
-            key={index} 
+          <Card
+            key={index}
             onClick={() => handleOpenDetailModal(program)}
             className="flex flex-col overflow-hidden cursor-pointer hover:border-primary/40 hover:shadow-lg transition-all duration-300 group"
           >
             <div className="overflow-hidden relative h-[180px]">
-              <img 
-                src={program.image} 
-                alt={program.title} 
-                className="w-full h-full object-cover grayscale opacity-90 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500" 
+              <img
+                src={program.image}
+                alt={program.title}
+                className="w-full h-full object-cover grayscale opacity-90 group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#090217] via-transparent to-transparent opacity-60"></div>
             </div>
@@ -302,16 +302,16 @@ const Programs = () => {
               <p className="text-[16px] font-semibold text-white mb-6">
                 <span className="text-[#3b82f6] font-medium font-sans">Fee - </span>{program.fee}
               </p>
-              
+
               <div className="mt-auto flex flex-col gap-3">
-                <button 
+                <button
                   onClick={(e) => handleOpenDeptModal(e, program.title)}
                   className="flex items-center justify-center gap-2 bg-transparent text-gray-400 border border-dashed border-white/10 rounded-lg p-3 text-[14px] font-medium hover:border-white/30 hover:text-white transition-all cursor-pointer w-full"
                 >
                   <Plus size={16} /> Add program
                 </button>
-                <button 
-                  onClick={(e) => e.stopPropagation()} 
+                <button
+                  onClick={(e) => e.stopPropagation()}
                   className="flex items-center justify-center gap-2 bg-transparent text-gray-400 border border-dashed border-white/10 rounded-lg p-3 text-[14px] font-medium hover:border-white/30 hover:text-white transition-all cursor-pointer w-full"
                 >
                   <Edit2 size={16} /> Edit
@@ -327,7 +327,7 @@ const Programs = () => {
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-[#090217] border border-[#150D25] w-full max-w-[560px] rounded-[24px] p-8 relative flex flex-col animate-fade-in font-sans">
             {/* Close Button */}
-            <button 
+            <button
               onClick={handleCancelFaculty}
               className="absolute right-8 top-8 w-8 h-8 rounded-full border border-white/10 hover:border-white/20 flex items-center justify-center text-gray-400 hover:text-white transition-all cursor-pointer"
             >
@@ -340,7 +340,7 @@ const Programs = () => {
             {/* Form */}
             <form onSubmit={handleSaveFaculty} className="flex flex-col">
               {/* Upload Image Section */}
-              <div 
+              <div
                 onClick={triggerFileInput}
                 className="w-full border-2 border-dashed border-[#894EEF]/30 hover:border-[#894EEF]/60 transition-all rounded-[16px] bg-[#070211]/50 h-[140px] flex flex-col items-center justify-center cursor-pointer gap-2 overflow-hidden relative"
               >
@@ -352,20 +352,20 @@ const Programs = () => {
                     <span>Click to upload</span>
                   </div>
                 )}
-                <input 
-                  type="file" 
-                  ref={fileInputRef} 
-                  onChange={handleImageChange} 
-                  accept="image/*" 
-                  className="hidden" 
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleImageChange}
+                  accept="image/*"
+                  className="hidden"
                 />
               </div>
 
               {/* Faculty Name */}
               <div className="flex flex-col mt-6">
                 <label className="text-white text-[13px] font-semibold mb-2.5 ml-1">Faculty Name</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   value={facultyName}
                   onChange={(e) => setFacultyName(e.target.value)}
                   className="w-full bg-[#070211] border border-white/5 text-white rounded-2xl px-5 py-4 text-[13px] outline-none focus:border-primary transition-colors"
@@ -376,8 +376,8 @@ const Programs = () => {
               {/* Fee Admission */}
               <div className="flex flex-col mt-6">
                 <label className="text-white text-[13px] font-semibold mb-2.5 ml-1">Fee (Admission)</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   value={fee}
                   onChange={(e) => setFee(e.target.value)}
                   className="w-full bg-[#070211] border border-white/5 text-white rounded-2xl px-5 py-4 text-[13px] outline-none focus:border-primary transition-colors"
@@ -387,15 +387,15 @@ const Programs = () => {
 
               {/* Action Buttons */}
               <div className="flex justify-end gap-3 mt-8">
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   onClick={handleCancelFaculty}
                   className="bg-transparent border border-white/10 hover:bg-white/5 text-white rounded-full px-8 py-3 text-[13px] font-semibold transition-all cursor-pointer"
                 >
                   Cancel
                 </button>
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="bg-primary hover:bg-opacity-90 text-white rounded-full px-8 py-3 text-[13px] font-semibold transition-all cursor-pointer"
                 >
                   Save
@@ -411,7 +411,7 @@ const Programs = () => {
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-[#090217] border border-[#150D25] w-full max-w-[560px] rounded-[24px] p-8 relative flex flex-col animate-fade-in font-sans">
             {/* Close Button */}
-            <button 
+            <button
               onClick={handleCancelDept}
               className="absolute right-8 top-8 w-8 h-8 rounded-full border border-white/10 hover:border-white/20 flex items-center justify-center text-gray-400 hover:text-white transition-all cursor-pointer"
             >
@@ -427,7 +427,7 @@ const Programs = () => {
               <div className="flex flex-col">
                 <label className="text-white text-[13px] font-semibold mb-2.5 ml-1">Faculty</label>
                 <div className="relative">
-                  <select 
+                  <select
                     value={deptFaculty}
                     onChange={(e) => setDeptFaculty(e.target.value)}
                     className="w-full bg-[#070211] border border-white/5 text-white rounded-2xl px-5 py-4 text-[13px] outline-none appearance-none pr-12 cursor-pointer"
@@ -449,8 +449,8 @@ const Programs = () => {
               {/* Department Name */}
               <div className="flex flex-col mt-6">
                 <label className="text-white text-[13px] font-semibold mb-2.5 ml-1">Department Name</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   value={deptName}
                   onChange={(e) => setDeptName(e.target.value)}
                   className="w-full bg-[#070211] border border-white/5 text-white rounded-2xl px-5 py-4 text-[13px] outline-none focus:border-primary transition-colors"
@@ -461,8 +461,8 @@ const Programs = () => {
               {/* Duration (Year) */}
               <div className="flex flex-col mt-6">
                 <label className="text-white text-[13px] font-semibold mb-2.5 ml-1">Duration (Year)</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   value={deptDuration}
                   onChange={(e) => setDeptDuration(e.target.value)}
                   className="w-[200px] bg-[#070211] border border-white/5 text-white rounded-2xl px-5 py-4 text-[13px] outline-none focus:border-primary transition-colors"
@@ -472,15 +472,15 @@ const Programs = () => {
 
               {/* Action Buttons */}
               <div className="flex justify-end gap-3 mt-8">
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   onClick={handleCancelDept}
                   className="bg-transparent border border-white/10 hover:bg-white/5 text-white rounded-full px-8 py-3 text-[13px] font-semibold transition-all cursor-pointer"
                 >
                   Cancel
                 </button>
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   className="bg-primary hover:bg-opacity-90 text-white rounded-full px-8 py-3 text-[13px] font-semibold transition-all cursor-pointer"
                 >
                   Save
@@ -496,7 +496,7 @@ const Programs = () => {
         <div className="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <div className="bg-[#090217] border border-[#150D25] w-full max-w-[620px] rounded-[28px] overflow-hidden relative flex flex-col animate-fade-in font-sans shadow-2xl">
             {/* Float Close Button */}
-            <button 
+            <button
               onClick={handleCloseDetailModal}
               className="absolute right-5 top-5 w-8 h-8 rounded-full bg-black/40 backdrop-blur-md border border-white/10 hover:bg-black/60 flex items-center justify-center text-white hover:scale-105 transition-all cursor-pointer z-10"
             >
@@ -542,7 +542,7 @@ const Programs = () => {
                 ) : (
                   selectedFaculty.departments.map((dept, i) => {
                     const isEditing = editingDeptIndex === i;
-                    
+
                     return (
                       <div key={i} className="flex items-center justify-between p-4 bg-[#070211]/40 border border-white/5 rounded-2xl hover:bg-white/[0.01] transition-all group">
                         {isEditing ? (
@@ -552,7 +552,7 @@ const Programs = () => {
                               {i + 1}
                             </div>
                             <div className="flex-1 flex gap-2">
-                              <input 
+                              <input
                                 type="text"
                                 value={editDeptName}
                                 onChange={(e) => setEditDeptName(e.target.value)}
@@ -560,7 +560,7 @@ const Programs = () => {
                                 placeholder="Department Name"
                                 required
                               />
-                              <input 
+                              <input
                                 type="text"
                                 value={editDeptDuration}
                                 onChange={(e) => setEditDeptDuration(e.target.value)}
@@ -570,13 +570,13 @@ const Programs = () => {
                               />
                             </div>
                             <div className="flex items-center gap-1.5 ml-2">
-                              <button 
+                              <button
                                 onClick={() => saveEditDept(i)}
                                 className="w-8 h-8 rounded-lg bg-green-500/10 border border-green-500/20 text-green-500 hover:bg-green-500 hover:text-white transition-all flex items-center justify-center cursor-pointer"
                               >
                                 <Check size={14} />
                               </button>
-                              <button 
+                              <button
                                 onClick={cancelEditDept}
                                 className="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white transition-all flex items-center justify-center cursor-pointer"
                               >
@@ -599,14 +599,14 @@ const Programs = () => {
                               </span>
                               {/* Edit & Delete Action Buttons */}
                               <div className="flex items-center gap-1 opacity-40 hover:opacity-100 group-hover:opacity-100 transition-all duration-200">
-                                <button 
+                                <button
                                   onClick={() => startEditDept(i, dept)}
                                   className="w-7 h-7 rounded-lg bg-white/5 hover:bg-primary/20 text-gray-400 hover:text-white transition-all flex items-center justify-center cursor-pointer"
                                   title="Edit Department"
                                 >
                                   <Edit size={12} />
                                 </button>
-                                <button 
+                                <button
                                   onClick={() => deleteDept(i)}
                                   className="w-7 h-7 rounded-lg bg-white/5 hover:bg-red-500/20 text-gray-400 hover:text-red-500 transition-all flex items-center justify-center cursor-pointer"
                                   title="Delete Department"
