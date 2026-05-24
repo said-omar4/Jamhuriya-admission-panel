@@ -4,12 +4,66 @@ import PageLayout from '../components/PageLayout';
 import Card from '../components/Card';
 
 const activityData = [
-  { action: 'Approved Application', admin: 'Said Omar Ahmed', email: 'sayad465608@gmail.com', module: 'Applications', time: '10 mins ago', ip: '197.124.22.8' },
-  { action: 'Rejected Application', admin: 'Said Omar Ahmed', email: 'sayad465608@gmail.com', module: 'Applications', time: '1 hour ago', ip: '197.124.22.8' },
-  { action: 'Updated Program Fee', admin: 'saidomar@gmail.com', email: 'saidomar@gmail.com', module: 'Programs', time: '3 hours ago', ip: '197.124.23.41' },
-  { action: 'Added Admin User', admin: 'saidomar@gmail.com', email: 'saidomar@gmail.com', module: 'Admin Users', time: '1 day ago', ip: '197.124.23.41' },
-  { action: 'Resolved Contact Message', admin: 'Officer Ali', email: 'ali@gmail.com', module: 'Contacts', time: '2 days ago', ip: '197.124.25.12' },
-  { action: 'Updated Settings', admin: 'saidomar@gmail.com', email: 'saidomar@gmail.com', module: 'Settings', time: '3 days ago', ip: '197.124.23.41' },
+  { 
+    action: 'Approved Application', 
+    beforeAction: 'Pending',
+    admin: 'Said Omar Ahmed', 
+    email: 'sayad465608@gmail.com', 
+    applicantPerson: 'Said Omar Ahmed Mohamud',
+    applicationReference: '#JUM0D0LR63ZF0Z',
+    module: 'Applications', 
+    time: '10 mins ago'
+  },
+  { 
+    action: 'Rejected Application', 
+    beforeAction: 'Pending',
+    admin: 'Said Omar Ahmed', 
+    email: 'sayad465608@gmail.com', 
+    applicantPerson: 'Ahmed Ali Warsame',
+    applicationReference: '#JUM0D0LR78YF1X',
+    module: 'Applications', 
+    time: '1 hour ago'
+  },
+  { 
+    action: 'Updated Program Fee', 
+    beforeAction: '$20',
+    admin: 'saidomar@gmail.com', 
+    email: 'saidomar@gmail.com', 
+    applicantPerson: '—',
+    applicationReference: '—',
+    module: 'Programs', 
+    time: '3 hours ago'
+  },
+  { 
+    action: 'Added Admin User', 
+    beforeAction: 'None',
+    admin: 'saidomar@gmail.com', 
+    email: 'saidomar@gmail.com', 
+    applicantPerson: 'Officer Ali',
+    applicationReference: '—',
+    module: 'Admin Users', 
+    time: '1 day ago'
+  },
+  { 
+    action: 'Resolved Contact Message', 
+    beforeAction: 'Unresolved',
+    admin: 'Officer Ali', 
+    email: 'ali@gmail.com', 
+    applicantPerson: 'Hassan Mohamed',
+    applicationReference: '—',
+    module: 'Contacts', 
+    time: '2 days ago'
+  },
+  { 
+    action: 'Updated Settings', 
+    beforeAction: 'Maintenance Off',
+    admin: 'saidomar@gmail.com', 
+    email: 'saidomar@gmail.com', 
+    applicantPerson: '—',
+    applicationReference: '—',
+    module: 'Settings', 
+    time: '3 days ago'
+  },
 ];
 
 const ActivityLog = () => {
@@ -82,10 +136,12 @@ const ActivityLog = () => {
             <thead>
               <tr className="border-b border-white/5">
                 <th className="px-6 py-5 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">ACTION</th>
+                <th className="px-6 py-5 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">BEFORE ACTION</th>
                 <th className="px-6 py-5 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">ADMIN</th>
+                <th className="px-6 py-5 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">APPLICANT PERSON</th>
+                <th className="px-6 py-5 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">APPLICATION REFERENCE</th>
                 <th className="px-6 py-5 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">MODULE</th>
                 <th className="px-6 py-5 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">TIME</th>
-                <th className="px-6 py-5 text-[10px] font-semibold text-gray-500 uppercase tracking-wider">IP ADDRESS</th>
               </tr>
             </thead>
             <tbody>
@@ -94,20 +150,32 @@ const ActivityLog = () => {
                   <td className="px-6 py-4">
                     {getActionBadge(item.action)}
                   </td>
+                  <td className="px-6 py-4 text-[13px] text-gray-400 font-medium">
+                    {item.beforeAction ? (
+                      <span className="px-3 py-1 rounded-full text-[11px] font-semibold border text-gray-400 bg-gray-400/5 border-white/5 inline-flex items-center justify-center">
+                        {item.beforeAction}
+                      </span>
+                    ) : (
+                      "—"
+                    )}
+                  </td>
                   <td className="px-6 py-4">
                     <div className="flex flex-col">
                       <p className="text-white text-[14px] font-medium mb-0.5">{item.admin}</p>
                       <p className="text-gray-500 text-[11px] tracking-wide">{item.email}</p>
                     </div>
                   </td>
+                  <td className="px-6 py-4 text-[13px] text-white font-medium">
+                    {item.applicantPerson}
+                  </td>
+                  <td className="px-6 py-4 text-[13px] text-primary font-semibold">
+                    {item.applicationReference}
+                  </td>
                   <td className="px-6 py-4 text-[13px] text-gray-400">
                     {item.module}
                   </td>
                   <td className="px-6 py-4 text-[13px] text-gray-500 font-medium">
                     {item.time}
-                  </td>
-                  <td className="px-6 py-4 text-[13px] text-gray-500 font-medium">
-                    {item.ip}
                   </td>
                 </tr>
               ))}

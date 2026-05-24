@@ -92,17 +92,17 @@ const Reports = () => {
           </div>
           <h2 className="text-white text-[15px] font-semibold tracking-wide">Filter Reports</h2>
         </div>
-        
+
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="flex flex-wrap items-center gap-4">
             <div className="flex flex-col gap-1.5">
               <label className="text-[#8c8a9e] text-[12px] font-medium ml-1">Select Year</label>
-              <select 
+              <select
                 className="bg-main-bg border border-white/5 text-white rounded-xl pl-4 pr-10 py-3 text-[13px] outline-none min-w-[140px] appearance-none cursor-pointer focus:border-primary transition-colors"
-                style={{ 
-                  backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%238c8a9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>')`, 
-                  backgroundRepeat: 'no-repeat', 
-                  backgroundPosition: 'right 16px center' 
+                style={{
+                  backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%238c8a9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>')`,
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'right 16px center'
                 }}
               >
                 <option>All Status</option>
@@ -114,10 +114,10 @@ const Reports = () => {
             <div className="flex flex-col gap-1.5">
               <label className="text-[#8c8a9e] text-[12px] font-medium ml-1">From</label>
               <div className="relative">
-                <input 
-                  type="text" 
-                  className="bg-main-bg border border-white/5 text-white rounded-xl pl-4 pr-10 py-3 text-[13px] outline-none w-[140px] focus:border-primary transition-colors" 
-                  defaultValue="MM/DD/YYYY" 
+                <input
+                  type="text"
+                  className="bg-main-bg border border-white/5 text-white rounded-xl pl-4 pr-10 py-3 text-[13px] outline-none w-[140px] focus:border-primary transition-colors"
+                  defaultValue="MM/DD/YYYY"
                 />
                 <Calendar size={14} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#8c8a9e] pointer-events-none" />
               </div>
@@ -125,10 +125,10 @@ const Reports = () => {
             <div className="flex flex-col gap-1.5">
               <label className="text-[#8c8a9e] text-[12px] font-medium ml-1">To</label>
               <div className="relative">
-                <input 
-                  type="text" 
-                  className="bg-main-bg border border-white/5 text-white rounded-xl pl-4 pr-10 py-3 text-[13px] outline-none w-[140px] focus:border-primary transition-colors" 
-                  defaultValue="MM/DD/YYYY" 
+                <input
+                  type="text"
+                  className="bg-main-bg border border-white/5 text-white rounded-xl pl-4 pr-10 py-3 text-[13px] outline-none w-[140px] focus:border-primary transition-colors"
+                  defaultValue="MM/DD/YYYY"
                 />
                 <Calendar size={14} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#8c8a9e] pointer-events-none" />
               </div>
@@ -139,7 +139,7 @@ const Reports = () => {
               </button>
             </div>
           </div>
-          
+
           <div className="flex flex-col gap-1.5 mt-auto">
             <button className="bg-primary hover:bg-opacity-90 text-white rounded-full px-6 py-3 text-[13px] font-semibold transition-colors cursor-pointer flex items-center gap-2 h-[46px] justify-center">
               <Download size={14} /> Export CSV
@@ -161,7 +161,7 @@ const Reports = () => {
       <Card className="p-6">
         <h3 className="text-white text-[16px] font-semibold mb-1">Admissions Trend</h3>
         <p className="text-gray-500 text-[12px] mb-6">against Total submitted vs Paid</p>
-        
+
         <div className="w-full h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={trendData} margin={{ top: 20, right: 0, left: -20, bottom: 0 }}>
@@ -357,7 +357,7 @@ const Reports = () => {
             </div>
             <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 text-white text-[11px] font-medium hover:bg-white/5 transition-colors shrink-0"><Eye size={12} /> View all</button>
           </div>
-          
+
           <div className="flex items-center justify-center h-[200px] mb-6">
             <div className="relative w-[160px] h-[160px] shrink-0">
               <ResponsiveContainer width="100%" height="100%">
@@ -468,7 +468,7 @@ const Reports = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[600px]">
               <thead>
